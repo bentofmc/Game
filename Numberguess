@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function guessingGame() {
+        const randomNumber = Math.floor(Math.random() * 1000) + 1;
+        let attempts = 0;
+
+        while (true) {
+            let guess = parseInt(prompt("Guess the number between 1 and 1000 (or cancel to exit):"));
+
+            if (isNaN(guess)) {
+                alert("Please enter valid numbers only.");
+                continue;
+            }
+
+            if (guess === 0) {
+                alert(`The random number was: ${randomNumber}.`);
+                break;
+            }
+
+            attempts++;
+
+            if (guess < randomNumber) {
+                alert("The number is too low. Try again.");
+            } else if (guess > randomNumber) {
+                alert("The number is too high. Try again.");
+            } else {
+                alert(`Congratulations! You guessed it in ${attempts} attempts.`);
+                break;
+            }
+        }
+    }
+
+    guessingGame();
+</script>
+
+</body>
+</html>
